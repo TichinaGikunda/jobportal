@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+  <h4 class="text-center">Welcome, {{ user.username }} 👋</h4>
+  <div class="text-center mt-4">
+    <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+  </div>
+{% else %}
+  <h4 class="text-center mb-4">Welcome to My Project</h4>
+  <div class="text-center">
+    <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
+    <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+  </div>
+{% endif %}
+{% endblock %}
+
